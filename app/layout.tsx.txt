@@ -1,0 +1,92 @@
+import type { Metadata } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Анна Лиф | Клинический психолог в Москве и онлайн",
+  description: "Помощь при тревоге, выгорании, депрессии. Индивидуальная и групповая терапия. Клинический психолог, супервизор, преподаватель. 4500+ часов практики.",
+  keywords: "психолог Москва, психолог онлайн, тревога, панические атаки, выгорание, депрессия, психолог для женщин, групповая терапия, супервизор",
+  authors: [{ name: "Анна Лиф" }],
+  openGraph: {
+    title: "Анна Лиф | Клинический психолог",
+    description: "Помощь при тревоге, выгорании, депрессии. Индивидуальная и групповая терапия.",
+    type: "website",
+    locale: "ru_RU",
+    url: "https://anna-lif.ru",
+    siteName: "Анна Лиф — Психолог",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Анна Лиф | Клинический психолог",
+    description: "Помощь при тревоге, выгорании, депрессии",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://anna-lif.ru",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="ru">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Анна Лиф",
+              jobTitle: "Клинический психолог",
+              description: "Клинический психолог, супервизор, преподаватель. 4500+ часов практики.",
+              url: "https://anna-lif.ru",
+              sameAs: [
+                "https://t.me/anna_lif_psy",
+              ],
+              knowsAbout: [
+                "Когнитивно-поведенческая терапия",
+                "Эмоционально-образная терапия",
+                "Гипнотерапия",
+                "Терапия личностного роста",
+              ],
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Услуги психолога",
+                itemListElement: [
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Индивидуальная терапия",
+                      description: "Психологическая помощь при тревоге, выгорании, депрессии",
+                    },
+                    price: "7000",
+                    priceCurrency: "RUB",
+                  },
+                ],
+              },
+            }),
+          }}
+        />
+      </head>
+      <body className="antialiased">
+        {children}
+      </body>
+    </html>
+  );
+}
